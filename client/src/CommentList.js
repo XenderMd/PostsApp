@@ -16,11 +16,11 @@ const CommentList = ({postId})=>{
     },[]);
 
     const renderedComments = comments.map(comment=>{
-        return <li key={comment.id}>{comment.content}</li>
+        return <li className="list-group-item" key={comment.id}>{comment.content}</li>
     });
 
     return(
-        <ul>
+        <ul className="list-group">
             {renderedComments}
         </ul>
     );
