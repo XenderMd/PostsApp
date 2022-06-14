@@ -5,7 +5,7 @@ const cors = require('cors');
 
 const app=express();
 app.use(bodyParser.json());
-app.use(cors);
+app.use(cors());
 
 const commentsByPostId={};
 
@@ -17,7 +17,7 @@ app.get('/posts/:id/comments', (req, res)=>{
 app.post('/posts/:id/comments', (req, res)=>{
     const commentId=randomBytes(4).toString('hex');
     const {content}=req.body;
-    // console.log(req.body);
+    console.log(req.body);
     const comments=commentsByPostId[req.params.id]|| [];
     comments.push({id:commentId, content});
     commentsByPostId[req.params.id]=comments;
